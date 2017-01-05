@@ -76,13 +76,19 @@ module.exports = function (grunt) {
     // By default, lint and run all tests.
     grunt.registerTask('default', ['jshint', 'test']);
 
-    grunt.registerTask('h', [
+
+    grunt.registerTask('ready', 'do clean and copy, ready for test.', ['clean:test', 'copy:test']);
+    grunt.registerTask('r', 'run recursive import test only', ['html_imports:recurse']);
+
+    grunt.registerTask('h', 'run complete import test', [
         'clean:test',
         'copy:test',
         'html_imports:test'
     ]);
 
-    grunt.registerTask('ready', ['clean:test', 'copy:test']);
-    grunt.registerTask('html', ['html_imports:test']);
-    grunt.registerTask('r', ['html_imports:recurse']);
+    grunt.registerTask('tr', 'run recursive import test', [
+        'clean:test',
+        'copy:test',
+        'html_imports:recurse'
+    ]);
 };
