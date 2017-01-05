@@ -167,7 +167,7 @@ module.exports = function (grunt) {
                 grunt.file.write(file.dest, content);
 
                 // Print a success message.
-                grunt.log.writeln('File "' + file.dest + '" created.\n');
+                grunt.log.writeln('File "' + file.dest + '" created.');
             });
         });
     });
