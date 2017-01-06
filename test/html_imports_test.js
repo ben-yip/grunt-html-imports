@@ -3,46 +3,56 @@
 var grunt = require('grunt');
 
 /*
-  ======== A Handy Little Nodeunit Reference ========
-  https://github.com/caolan/nodeunit
+ ======== A Handy Little Nodeunit Reference ========
+ https://github.com/caolan/nodeunit
 
-  Test methods:
-    test.expect(numAssertions)
-    test.done()
-  Test assertions:
-    test.ok(value, [message])
-    test.equal(actual, expected, [message])
-    test.notEqual(actual, expected, [message])
-    test.deepEqual(actual, expected, [message])
-    test.notDeepEqual(actual, expected, [message])
-    test.strictEqual(actual, expected, [message])
-    test.notStrictEqual(actual, expected, [message])
-    test.throws(block, [error], [message])
-    test.doesNotThrow(block, [error], [message])
-    test.ifError(value)
-*/
+ Test methods:
+ test.expect(numAssertions)
+ test.done()
+ Test assertions:
+ test.ok(value, [message])
+ test.equal(actual, expected, [message])
+ test.notEqual(actual, expected, [message])
+ test.deepEqual(actual, expected, [message])
+ test.notDeepEqual(actual, expected, [message])
+ test.strictEqual(actual, expected, [message])
+ test.notStrictEqual(actual, expected, [message])
+ test.throws(block, [error], [message])
+ test.doesNotThrow(block, [error], [message])
+ test.ifError(value)
+ */
 
 exports.html_imports = {
-  setUp: function(done) {
-    // setup here if necessary
-    done();
-  },
-  default_options: function(test) {
-    test.expect(1);
+    setUp: function (done) {
+        // setup here if necessary
+        done();
+    },
 
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    // test two basic imports.
+    basic_import: function (test) {
+        test.expect(2);
 
-    test.done();
-  },
-  custom_options: function(test) {
-    test.expect(1);
+        //index.html
+        var actual = grunt.file.read('tmp/output/index.html');
+        var expected = grunt.file.read('test/expected/index.html');
+        test.equal(actual, expected, 'The import-link tag should be replaced with the according html fragment.');
 
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+        //about.html
+        actual = grunt.file.read('tmp/output/about.html');
+        expected = grunt.file.read('test/expected/about.html');
+        test.equal(actual, expected, 'The import-link tag should be replaced with the according html fragment.');
 
-    test.done();
-  },
+        test.done();
+    },
+
+    recursive_import: function (test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/output/recurse/a.html');
+        var expected = grunt.file.read('test/expected/a.html');
+
+        test.equal(actual, expected, 'The page should contain all fragment content even imported recursively');
+
+        test.done();
+    }
 };

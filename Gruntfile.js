@@ -44,7 +44,7 @@ module.exports = function (grunt) {
 
         // Configuration to be run (and then tested).
         html_imports: {
-            test: {
+            basic: {
                 expand: true,
                 cwd: 'tmp/source',
                 src: '**/*',
@@ -69,26 +69,27 @@ module.exports = function (grunt) {
     });
 
 
-    // Whenever the "test" task is run, first clean the "tmp" dir, then run this
-    // plugin's task(s), then test the result.
-    grunt.registerTask('test', ['clean', 'html_imports', 'nodeunit']);
+    // Whenever the "test" task is run, first clean the "tmp" dir
+    // and re-copy file to tmp dir,
+    // then run this plugin's task(s), then test the result.
+    grunt.registerTask('test', ['clean', 'copy', 'html_imports', 'nodeunit']);
 
     // By default, lint and run all tests.
     grunt.registerTask('default', ['jshint', 'test']);
 
 
-    grunt.registerTask('ready', 'do clean and copy, ready for test.', ['clean:test', 'copy:test']);
+    grunt.registerTask('ready', 'do clean and copy, ready for test.', ['clean', 'copy']);
     grunt.registerTask('r', 'run recursive import test only', ['html_imports:recurse']);
 
     grunt.registerTask('h', 'run complete import test', [
-        'clean:test',
-        'copy:test',
-        'html_imports:test'
+        'clean',
+        'copy',
+        'html_imports:basic'
     ]);
 
     grunt.registerTask('tr', 'run recursive import test', [
-        'clean:test',
-        'copy:test',
+        'clean',
+        'copy',
         'html_imports:recurse'
     ]);
 };
