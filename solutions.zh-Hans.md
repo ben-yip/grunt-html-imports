@@ -1,6 +1,6 @@
 # 情景描述
 
- - 开发静态页面 Demo 时，如何解决包含页面片段的问题？
+ - 开发静态页面 Demo 时，如何解决包含页面片段的问题（比如抽取然后引用相同的 header 和 footer）？
  - 是不是想要在开发静态 HTML 时，也可以像在 JSP 中那样 include 一些可重用的页面片段？
  - 如果有了片段引入，就可以用模块化的思想去组织页面片段，开发多个稍复杂静态页时，结构也变得更清晰了；
  - 开发完静态页后，如果切换成其他后端模板的工作需要交给后端的小伙伴，后端开发者也更容易看懂页面组织的逻辑；
@@ -12,9 +12,9 @@
 |:-----|:-----|
 |使用后端模板引擎(ASP、JSP、PHP…)|服务器端渲染|
 |使用前端模板引擎(EJS、Pug、Nunjucks、Hogan.js ...)|在 Node 环境中使用，相当于服务器端渲染；<br>在 Browser 环境中使用，就是客户端渲染；|
-|使用[SSI](https://en.wikipedia.org/wiki/Server_Side_Includes)，即服务器端包含， 文件扩展名为 shtml；|服务器端渲染，支持的服务器有：[Apache httpd](http://httpd.apache.org/)、[NginX](http://nginx.org/) 等|
+|使用[SSI](https://en.wikipedia.org/wiki/Server_Side_Includes)，即服务器端包含，文件扩展名为.shtml；|服务器端渲染，支持的服务器有：[Apache httpd](http://httpd.apache.org/)、[NginX](http://nginx.org/) 等|
 |通过AJAX加载，可借助 jQuery 的 [.load() 方法](http://www.jquery123.com/load/)|需要HTML元素占位，还是客户端渲染|
-|使用组件化/MVC框架（React中的组件、Angular中的指令、Vue ...）|客户端渲染|
+|使用组件化/MVC框架（React的组件、Angular的指令、Vue...）|客户端渲染|
 |[FIS](http://fis.baidu.com/) 这类集成方案里面也有 html 嵌入功能 ||
 |自行编写小工具，参见[这篇张鑫旭的文章](http://www.zhangxinxu.com/wordpress/2016/06/csser-how-to-use-nodejs/)|直接粗暴，稍显简陋|
 |利用一些标签：```<iframe>```,```<embed>```,```<object>```|:neutral_face::thumbsdown:|
@@ -28,8 +28,9 @@
 
 **结论**：
  - 可见有很多方案可以实现，但是割鸡焉用牛刀？借用大型的框架/组件来实现这一简单的功能会引入多余的东西，显得太“重”；
- - 而本项目就是只做页面片段引入这件事的一款 **Grunt 插件**，构建后的页面就是一个个普通的 HTML 文件，甚至在查看时可以直接本地在浏览器中打开，无需依赖其他配置和环境，这也是比起服务器端/前端渲染方案的优势所在。
+ - 而本项目就是只做页面片段引入这件事的一款 **Grunt 插件**，构建后的页面就是一个个普通的 HTML 文件，甚至在要查看时可以直接本地在浏览器中打开，无需依赖其他配置和环境，这也是比起服务器端/前端渲染方案的优势所在。
  - 前提是会简单地使用[Grunt](http://gruntjs.com/)。英文烂？不怕，还有[Grunt中文站](http://www.gruntjs.net/)。
+
 
 # 艰难的标准化进程
 
@@ -39,7 +40,7 @@
    - https://developer.mozilla.org/en-US/docs/Web/Web_Components/HTML_Imports
    - https://www.html5rocks.com/en/tutorials/webcomponents/imports/ （可切换中文版）
    - 使用方式大概是这样的：```<link rel="import" href="myfile.html">```
-   - 在有些试验性实现下，引入的不是片段，而是文档，类似于iframe，
+   - 在有些试验性实现下，引入的不是片段，而是文档，类似于iframe；
    - 不过距离标准化还远，不好说到时会变成什么样；
    - 也可以在Can I use 中看看支持情况：http://caniuse.com/#search=import
  - 其他相关概念：
