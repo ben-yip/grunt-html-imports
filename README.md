@@ -1,6 +1,81 @@
 # grunt-html-imports
 
-> Import html partials.
+> Import html partials.  
+>
+> Having trouble managing and modularizing your static HTML project?  
+Try this plugin.
+
+## How it works?
+
+- Use a `<link>` tag to indicate which html-fragment you want to import. What this plugin do is to replace each import-link tag statement with the according file content.
+- It does NOT matter whether you use relative or absolute paths. 
+- You can even import recursively (eg. `b.html` imported to `a.html`, and `c.html` imported to `b.html`)
+
+Just write the import-link tag, and get what you want.
+
+
+### Example
+
+Consider you have 3 following .html files:  
+
+**index.html**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<link rel="import" href="common/_header.html">
+
+<p> Index page content </p>
+
+<link rel="import" href="common/_footer.html">
+
+</body>
+</html>
+```
+
+**common/_header.html**
+```html
+<header>
+    This is header.
+</header>
+```
+
+**common/_footer.html**
+```html
+<footer>
+    This is footer.
+</footer>
+```
+
+After processed by this plugin, an `index.html` file is output as follows:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<header>
+    This is header.
+</header>
+
+<p> Index page content </p>
+
+<footer>
+    This is footer.
+</footer>
+
+</body>
+</html>
+```
+
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -30,24 +105,26 @@ grunt.initConfig({
     },
     your_target: {
       // Target-specific file lists and/or options go here.
-    },
-  },
+    }
+  }
 });
 ```
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### options.htmlOnly
+Type: `Boolean`  
+Default value: `true`
 
-A string value that is used to do something with whatever.
+Whether to process html files only.  
+Basically, this plugin is designed to process html files. 
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### options.outputUnderscore
+Type: `Boolean`  
+Default: `false`
 
-A string value that is used to do something else with whatever else.
+Conventionally, we name partial files start with an underscore(_) and there's NO need to output to dist directory.
+          
 
 ### Usage Examples
 
@@ -86,4 +163,4 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+v0.1.0 &nbsp; init release.
