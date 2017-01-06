@@ -10,22 +10,24 @@
  
 | 方案 | 特点 |
 |:-----|:-----|
-|使用后端模板引擎(ASP、JSP、PHP…)|服务器端渲染，割鸡焉用牛刀？|
+|使用后端模板引擎(ASP、JSP、PHP…)|服务器端渲染|
 |使用前端模板引擎(EJS、Pug、Nunjucks、Hogan.js ...)|在 Node 环境中使用，相当于服务器端渲染；<br>在 Browser 环境中使用，就是客户端渲染；|
 |使用[SSI](https://en.wikipedia.org/wiki/Server_Side_Includes)，即服务器端包含， 文件扩展名为 shtml；|服务器端渲染，支持的服务器有：[Apache httpd](http://httpd.apache.org/)、[NginX](http://nginx.org/) 等|
 |通过AJAX加载，可借助 jQuery 的 [.load() 方法](http://www.jquery123.com/load/)|需要HTML元素占位，还是客户端渲染|
-|使用组件化/MVC框架（React中的组件、Angular中的指令、Vue ...）|客户端渲染，若项目开发时本来就在用这些框架，也不用担心这里要解决的问题了|
-|其他：FIS 有 html 嵌入功能 
+|使用组件化/MVC框架（React中的组件、Angular中的指令、Vue ...）|客户端渲染|
+|[FIS](http://fis.baidu.com/) 这类集成方案里面也有 html 嵌入功能 ||
 |自行编写小工具，参见[这篇张鑫旭的文章](http://www.zhangxinxu.com/wordpress/2016/06/csser-how-to-use-nodejs/)|直接粗暴，稍显简陋|
-|利用一些标签：```<iframe>```,```<embed>```,```<object>```|:smirk:|
+|利用一些标签：```<iframe>```,```<embed>```,```<object>```|:simple_smile::thumbsdown:|
 
 归纳起来有以下几类：
 
  - 服务器端渲染：其实就是利用模板引擎做字符串拼接的工作；
  - 客户端渲染：不管以何种形式加载，最终会涉及DOM操作；
- - 各种有组件化功能的框架/库：除非项目要使用这些环境/工具，否则方案不通用；
- - 借助构建工具的插件 ***（本项目就是干这件事的 Grunt 插件）***；
- - 其他；
+ - 各种有组件化功能的框架/库：除非项目基于这些框架/集成方案构建，否则方案不通用；
+ - 借助构建工具（Grunt, Gulp 等）的插件； **（本项目就是一款干这件事的 Grunt 插件）**；
+
+**结论**：可见有很多方案可以实现，但是割鸡焉用牛刀？借用大型的框架/组件来实现这一简单的功能会引入多余的东西，显得太“重”。
+而本项目就是只做页面片段引入这件事的一款 Grunt 插件，构建后的页面就是一个个普通的 HTML 文件，可以直接本地在浏览器中打开，无需依赖其他配置和环境。
 
 
 # 艰难的标准化进程
