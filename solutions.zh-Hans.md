@@ -17,7 +17,7 @@
 |使用组件化/MVC框架（React中的组件、Angular中的指令、Vue ...）|客户端渲染，若项目开发时本来就在用这些框架，也不用担心这里要解决的问题了|
 |其他：FIS 有 html 嵌入功能 
 |自行编写小工具，参见[这篇张鑫旭的文章](http://www.zhangxinxu.com/wordpress/2016/06/csser-how-to-use-nodejs/)|直接粗暴，稍显简陋|
-|利用一些标签：```<iframe>```,```<embed>```,```<object>```|:simple_smile:|
+|利用一些标签：```<iframe>```,```<embed>```,```<object>```|:smirk:|
 
 归纳起来有以下几类：
 
@@ -32,23 +32,25 @@
 
  - HTML 至今尚未原生支持引入片段，也有自身的历史原因；
  - 在当下组件化的需求和浪潮下，一些工作草案（Working Draft）正在制定：
-    - http://w3c.github.io/webcomponents/spec/imports/
-    - https://developer.mozilla.org/en-US/docs/Web/Web_Components/HTML_Imports
-    - https://www.html5rocks.com/en/tutorials/webcomponents/imports/ （可切换中文版）
-    - 使用方式大概是这样的：```<link rel="import" href="myfile.html">```
-    - 在有些试验性实现下，引入的不是片段，而是文档，类似于iframe，
-    - 不过距离标准化还远，不好说到时会变成什么样；
-    - 也可以在Can I use 中看看支持情况：http://caniuse.com/#search=import
+   - http://w3c.github.io/webcomponents/spec/imports/
+   - https://developer.mozilla.org/en-US/docs/Web/Web_Components/HTML_Imports
+   - https://www.html5rocks.com/en/tutorials/webcomponents/imports/ （可切换中文版）
+   - 使用方式大概是这样的：```<link rel="import" href="myfile.html">```
+   - 在有些试验性实现下，引入的不是片段，而是文档，类似于iframe，
+   - 不过距离标准化还远，不好说到时会变成什么样；
+   - 也可以在Can I use 中看看支持情况：http://caniuse.com/#search=import
  - 其他相关概念：
-    - [Custom Element](https://w3c.github.io/webcomponents/spec/custom/)：允许自定义元素；
-    - [Shadow DOM](http://webcomponents.org/articles/introduction-to-shadow-dom/)：允许用声明的方式定义你的自定义元素的内容；
-    - [The <template> Element](http://webcomponents.org/articles/introduction-to-template-element/)：允许一个元素的style、ID、class只作用到其本身；
-    - 再结合 HTML Import，可见这些都是为了构造可复用、模块化的 Web 组件。
-    - 虽然标准没实现，不过已经有支持这套规范的polyfill： [webcomponents.js](https://github.com/webcomponents/webcomponentsjs)
-    - 关注这个组织： http://webcomponents.org/
+   - [Custom Element](https://w3c.github.io/webcomponents/spec/custom/)：允许自定义元素；
+   - [Shadow DOM](http://webcomponents.org/articles/introduction-to-shadow-dom/)：允许用声明的方式定义你的自定义元素的内容；
+   - [The <template> Element](http://webcomponents.org/articles/introduction-to-template-element/)：允许一个元素的style、ID、class只作用到其本身；
+   - 再结合 HTML Import，可见这些都是为了构造可复用、模块化的 Web 组件；
+   - 虽然标准没实现，不过已经有支持这套规范的polyfill： [webcomponents.js](https://github.com/webcomponents/webcomponentsjs)
+   - 关注这个组织： http://webcomponents.org/
+
 
 
 # 参考阅读
+
  - [HTML 静态页面的头部和底部都是相同的，如何让每个页面统一调用一个公共的头部和底部呢？——zhihu](https://www.zhihu.com/question/45549507)
  - [静态页面Demo项目，如何将header和footer 像PHP一样 include？ —— segmentfault](https://segmentfault.com/q/1010000002954318)
  - [静态 HTML 文件怎么从外部调入 HTML 模板（如头部，页尾这些公共的部分）？—— zhihu](https://www.zhihu.com/question/20349909)
