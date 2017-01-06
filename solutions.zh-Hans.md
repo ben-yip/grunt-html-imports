@@ -42,11 +42,10 @@
  - 其他相关概念：
    - [Custom Element](https://w3c.github.io/webcomponents/spec/custom/)：允许自定义元素；
    - [Shadow DOM](http://webcomponents.org/articles/introduction-to-shadow-dom/)：允许用声明的方式定义你的自定义元素的内容；
-   - [The <template> Element](http://webcomponents.org/articles/introduction-to-template-element/)：允许一个元素的style、ID、class只作用到其本身；
+   - [The \<template\> Element](http://webcomponents.org/articles/introduction-to-template-element/)：允许一个元素的style、ID、class只作用到其本身；
    - 再结合 HTML Import，可见这些都是为了构造可复用、模块化的 Web 组件；
    - 虽然标准没实现，不过已经有支持这套规范的polyfill： [webcomponents.js](https://github.com/webcomponents/webcomponentsjs)
    - 关注这个组织： http://webcomponents.org/
-
 
 
 # 参考阅读
