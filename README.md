@@ -18,8 +18,9 @@
 
 Consider you have 3 HTML files as follows:
 
-**index.html**
-```html
+**index.html:**
+
+```html  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,22 +39,25 @@ Consider you have 3 HTML files as follows:
 </html>
 ```
 
-**common/_header.html**
-```html
+**common/_header.html:**
+
+```html  
 <header>
     This is header.
 </header>
 ```
 
-**common/_footer.html**
-```html
+**common/_footer.html:**
+
+```html 
 <footer>
     This is footer.
 </footer>
 ```
 
 After processed by this plugin, an `index.html` file is output as follows:
-```html
+
+```html  
 <!DOCTYPE html>
 <html lang="en">
 <head>
