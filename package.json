@@ -2,7 +2,7 @@
   "name": "grunt-html-imports",
   "description": "Import html partials.",
   "version": "0.1.0",
-  "homepage": "https://github.com/ben-yip/grunt-html-imports",
+  "homepage": "https://ben-yip.github.io/grunt-html-imports/",
   "author": {
     "name": "BenYip",
     "email": "endless_leaf@163.com"
