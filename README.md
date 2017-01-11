@@ -11,7 +11,8 @@
 - It does NOT matter whether you use relative or absolute paths.
 - You can even import recursively (eg. `b.html` imported to `a.html`, and `c.html` imported to `b.html`)
 - Just write the import-link tag, and get what you want. Check out the example below.
-
+- For more solutions' comparison details and why this plugin is created, check out [solutions.zh-Hans.md](solutions.zh-Hans.md)  
+  （关于编写本插件的来由和各种解决方案的对比分析，查看本仓库中的另一篇文章：[solutions.zh-Hans.md](solutions.zh-Hans.md)）
 
 ### Example
 
