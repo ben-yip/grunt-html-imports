@@ -1,7 +1,7 @@
 {
   "name": "grunt-html-imports",
   "description": "Import html partials.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://ben-yip.github.io/grunt-html-imports/",
   "author": {
     "name": "BenYip",
