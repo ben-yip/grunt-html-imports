@@ -1,5 +1,10 @@
 # grunt-html-imports
 
+![GitHub license](https://img.shields.io/github/license/ben-yip/grunt-html-imports.svg)
+[![Total downloads](https://img.shields.io/npm/dt/grunt-html-imports.svg)](https://www.npmjs.com/package/grunt-html-imports)
+[![Yearly downloads](https://img.shields.io/npm/dy/grunt-html-imports.svg)](https://www.npmjs.com/package/grunt-html-imports)
+[![Monthly downloads](https://img.shields.io/npm/dm/grunt-html-imports.svg)](https://www.npmjs.com/package/grunt-html-imports)
+
 > Having trouble managing and modularizing your static HTML project?  
   Try this plugin.
 
