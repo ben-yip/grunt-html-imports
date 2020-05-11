@@ -153,7 +153,7 @@ module.exports = function (grunt) {
             }).filter(function (filepath) {
 
                 // filter non-html files
-                return options.htmlOnly && path.extname(filepath) === '.html';
+                return options.htmlOnly && (path.extname(filepath) === '.html' || path.extname(filepath) === '.htm');
 
             }).forEach(function (filepath) {
 
