@@ -157,4 +157,5 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+v0.1.2 &nbsp; add support for .htm files.  
 v0.1.0 &nbsp; init release.
